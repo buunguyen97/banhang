@@ -62,9 +62,11 @@ if ($_POST) {
                 <div class="text-center">
                     <h4 class="text-uppercase font-bold m-b-0">Đăng nhập đi nè!!! ahihi</h4>
                     <p style="color: red"><?php
-                                echo $_SESSION['error_login'];
-                                unset($_SESSION['error_login']);
-                              ?>
+                    if(isset($_SESSION['error_login'])){
+                        echo $_SESSION['error_login'];
+                        unset($_SESSION['error_login']);
+                    }
+                    ?>
                 </p>
                 </div>
                 <div class="p-20">

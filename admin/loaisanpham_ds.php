@@ -1,3 +1,10 @@
+<?php
+if(isset($_SESSION['success'])){
+    echo "<div><p class='bg-success' id='login' style='width: 350px;text-align: center;font-size: 17px;margin: 30px auto;'>Chúc mừng ngài đã xóa thành công !</p></div>
+    ";
+     unset($_SESSION['success']);
+}
+?>
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">

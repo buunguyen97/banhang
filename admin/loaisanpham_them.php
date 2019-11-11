@@ -1,10 +1,13 @@
 <?php
 if(isset($_POST['TenL'])){
-    $tencl = trim($_POST['TenL']);
+    $TenCL = trim($_POST['TenL']);
     $urlhinh = $_POST['urlHinh'];
     $AnHien = $_POST['anhien'];
     $idCL = $_POST['idCL'];
-    echo "<pre>"; print_r($_POST); exit;
+    $ThuTu=$_POST['ThuTu'];
+    $qt->themloaisp($idCL,$ThuTu,$AnHien,$TenCL,$urlhinh);
+    echo "<script>document.location='index.php?p=loaisanpham_ds';</script>";
+    exit();
 }
 
 
@@ -43,6 +46,12 @@ if(isset($_POST['TenL'])){
                                     <label for="AH1">Hiện&nbsp;&nbsp;&nbsp;</label>
                                     <input type="radio" id="AH0" name="anhien" value="0">
                                     <label for="AH0">Ẩn</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Thứ Tự</label>
+                                <div class="col-10">
+                                    <input type="text" name="ThuTu" id="ThuTu" class="form-control" value="">
                                 </div>
                             </div>
 

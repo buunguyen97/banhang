@@ -70,8 +70,19 @@ class quantri extends goc{
         return $str;
     }
     function themloaisp($idCL,$ThuTu,$AnHien,$TenCL,$urlhinh){
+        settype($idCL,"int");
+        settype($ThuTu,"int");
+        settype($AnHien,"int");
+        $TenCL = $this->db->escape_string(trim(strip_tags($TenCL)));
+        $urlhinh = $this->db->escape_string(trim(strip_tags($urlhinh)));
         $sql = "INSERT INTO loaisp SET idCL='$idCL',ThuTu=$ThuTu, AnHien='$AnHien', TenLoai='$TenCL',hinh='$urlhinh'";
         $kq = $this->db->query($sql);
-
+        if(!$kq) die( $this-> db->error);
+    }
+    function LoaiSP_Xoa($idL){
+        settype($idL,"int");
+        $sql="DELETE FROM loaisp WHERE idLoai=$idL";
+        $kq= $this->db->query($sql) ;
+        if(!$kq) die( $this-> db->error);
     }
 }
