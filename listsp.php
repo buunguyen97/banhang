@@ -19,8 +19,8 @@
                 <h3><a href="shop-detail.html"><?=$row['TenDT']?></a></h3>
                 <p class="price"><?=number_format($row['Gia'],0, ",",".");?> VND</p>
                 <p class="buttons">
-                    <a href="shop-detail.html" class="btn btn-default">Chi tiết</a>
-                    <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                    <a href="capnhatGH.php?action=add&idDT=<?=$row['idDT']?>" class="btn btn-default">Chi tiết</a>
+                    <a href="capnhatGH.php?action=add&idDT=<?=$row['idDT']?>" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                 </p>
             </div>
             <!-- /.text -->

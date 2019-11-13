@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "class/quantri.php";
+require_once "../class/quantri.php";
 $qt = new quantri();
 if ($_POST) {
     $u = trim($_POST['user']);

@@ -10,7 +10,7 @@
 
             <div class="box">
 
-                <form method="post" action="shop-checkout1.html">
+                <form method="post" action="capnhatGH.php?action=update">
 
                     <div class="table-responsive">
                         <table class="table">
@@ -24,40 +24,50 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            reset( $_SESSION['daySoLuong'] );
+                            reset( $_SESSION['dayDonGia'] );
+                            reset( $_SESSION['dayTenDT'] );
+                            $tongtien = $tongsoluong = 0;
+                            ?>
+                            <?php for ($i = 0; $i< count( $_SESSION['daySoLuong']) ; $i++) { ?>
+                            <?php
+                            $idDT = key( $_SESSION['daySoLuong'] );
+                            $tendt = current( $_SESSION['dayTenDT'] );
+                            $soluong = current( $_SESSION['daySoLuong'] );
+                            $dongia = current( $_SESSION['dayDonGia'] );
+                            $tien = $dongia*$soluong;
+                            $tongtien+= $tien;
+                            $tongsoluong+= $soluong;
+                            ?>
+
                             <tr>
                                 <td>
                                     <a href="#">
-                                        <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                                        <img src="img/detailsquare.jpg" alt="<?=$tendt?>">
                                     </a>
                                 </td>
-                                <td><a href="#">White Blouse Armani</a>
+                                <td><a href="#"><?=$tendt?></a>
                                 </td>
                                 <td>
-                                    <input type="number" value="2" class="form-control">
+                                    <input type="number" value="<?=$soluong?>" class="form-control" name="soluong_arr[]"  >
+                                    <input type="hidden" value="<?=$idDT?>" name="iddt_arr[]">
+
                                 </td>
-                                <td>$123.00</td>
-                                <td>$0.00</td>
-                                <td>$246.00</td>
-                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                <td><?=number_format($dongia,0, ",",".");?> VND</td>
+                                <td><?=number_format($tien,0, ",",".");?> VND</td>
+                                <td><?=number_format($tongtien,0, ",",".");?> VND</td>
+                                <a href="capnhatGH.php?action=remove&idDT=<?=$idDT?>"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
-                                    </a>
-                                </td>
-                                <td><a href="#">Black Blouse Armani</a>
-                                </td>
-                                <td>
-                                    <input type="number" value="1" class="form-control">
-                                </td>
-                                <td>$200.00</td>
-                                <td>$0.00</td>
-                                <td>$200.00</td>
-                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
+                                <?php
+                                next( $_SESSION['daySoLuong'] );
+                                next( $_SESSION['dayDonGia'] );
+                                next( $_SESSION['dayTenDT'] );
+                                ?>
+                            <?php } //for ?>
+
+
                             </tbody>
                             <tfoot>
                             <tr>
@@ -72,11 +82,11 @@
 
                     <div class="box-footer">
                         <div class="pull-left">
-                            <a href="shop-category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Tiếp tục mua hàng</a>
+                            <a href="<?=BASE_URL?>dien-thoai/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Tiếp tục mua hàng</a>
                         </div>
                         <div class="pull-right">
                             <button class="btn btn-default"><i class="fa fa-refresh"></i> Cập nhật giỏ hàng</button>
-                            <button type="submit" class="btn btn-template-main">Thanh toán <i class="fa fa-chevron-right"></i>
+                            <a class="btn btn-template-main" href="<?=BASE_URL?>thanh-toan-1/">Thanh toán <i class="fa fa-chevron-right"></i></a>
                             </button>
                         </div>
                     </div>
@@ -179,9 +189,9 @@
 
             <div class="box">
                 <div class="box-header">
-                    <h4>Coupon code</h4>
+                    <h4>Mã giảm giá</h4>
                 </div>
-                <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+                <p class="text-muted">Nếu bạn có mã giảm giá, vui lòng nhập nó vào ô bên dưới.</p>
                 <form>
                     <div class="input-group">
 

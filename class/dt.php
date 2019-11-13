@@ -62,7 +62,30 @@ class dt extends goc{
             unset($_SESSION['dayDonGia'][$idDT]);
             unset($_SESSION['daySoLuong'][$idDT]);
         } //remove
+        if ($action=="update"){
+            $iddt_arr = $_POST['iddt_arr'];
+            $soluong_arr = $_POST['soluong_arr'];
+            for($i=0; $i<count($iddt_arr);$i++){
+                $idDT = $iddt_arr[$i]; settype($idDT,"int"); if ($idDT<=0) continue;
+                $soluong=$soluong_arr[$i];settype($soluong,"int");
+                if ($soluong<=0) continue;
+                $kq = $this->chiTietSP($idDT);
+                $row = $kq->fetch_assoc();
+                $_SESSION['dayTenDT'][$idDT] = $row['TenDT'];
+                $_SESSION['dayDonGia'][$idDT] = $row['Gia'];
+                $_SESSION['daySoLuong'][$idDT] = $soluong;
+                if ($_SESSION['daySoLuong'][$idDT]>$row['SoLuongTonKho']) $_SESSION['daySoLuong'][$idDT] = $row['SoLuongTonKho'];
+
+            } //for
+        } //update
+
     }// function capnhatgiohang
+    function chiTietSP($idDT){
+        $sql="SELECT * FROM dienthoai WHERE AnHien = 1 AND idDT=$idDT";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
 
 }//dt
 ?>
