@@ -6,6 +6,7 @@ if(isset($_POST['TenL'])){
     $idCL = $_POST['idCL'];
     $ThuTu=$_POST['ThuTu'];
     $qt->themloaisp($idCL,$ThuTu,$AnHien,$TenCL,$urlhinh);
+    $_SESSION['successlogin'] = 1;
     echo "<script>document.location='index.php?p=loaisanpham_ds';</script>";
     exit();
 }

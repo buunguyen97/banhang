@@ -1,8 +1,15 @@
 <?php
 if(isset($_SESSION['success'])){
-    echo "<div><p class='bg-success' id='login' style='width: 350px;text-align: center;font-size: 17px;margin: 30px auto;'>Chúc mừng ngài đã xóa thành công !</p></div>
-    ";
-     unset($_SESSION['success']);
+    echo "<div><p class='bg-success' id='login' style='width: 350px;text-align: center;font-size: 17px;margin: 30px auto;'>Chúc mừng ngài đã xóa thành công !</p></div>";
+    unset($_SESSION['success']);
+}
+if(isset($_SESSION['successlogin'])){
+    echo "<div><p class='bg-success' id='login' style='width: 350px;text-align: center;font-size: 17px;margin: 30px auto;'>Chúc mừng ngài đã thêm thành công !</p></div>";
+    unset($_SESSION['successlogin']);
+}
+if(isset($_SESSION['successupdate'])){
+    echo "<div><p class='bg-success' id='login' style='width: 350px;text-align: center;font-size: 17px;margin: 30px auto;'>Chúc mừng ngài đã cập nhật thành công !</p></div>";
+    unset($_SESSION['successupdate']);
 }
 ?>
 <div class="row">
@@ -38,7 +45,7 @@ if(isset($_SESSION['success'])){
                     <td><?=($k['AnHien']==1)?"Hiện":"Ẩn";?></td>
                     <td><?=$k['ThuTu']?></td>
                     <td>
-                        <a href="?p=loaisanpham_ds&idL=<?=$k['idLoai']?>" class="btn bg-custom waves-effect text-white">Cập nhật</a> &nbsp;
+                        <a href="?p=loaisanpham_sua&idL=<?=$k['idLoai']?>" class="btn bg-custom waves-effect text-white">Cập nhật</a> &nbsp;
                         <a href="loaisanpham_xoa.php?idL=<?=$k['idLoai']?>" class="btn bg-danger waves-effect text-white" onClick="return confirm('Xóa hả')">Xóa</a>
 
                     </td>

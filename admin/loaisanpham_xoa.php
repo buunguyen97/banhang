@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "class/quantri.php";
+require_once "../class/quantri.php";
 $qt = new quantri;
 $qt-> checkLogin();
 $idL = $_GET['idL'];

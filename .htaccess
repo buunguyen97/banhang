@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^dien-thoai/$ main.php [L]
+RewriteRule ^gio-hang/$  main.php?p=giohang  [L]
