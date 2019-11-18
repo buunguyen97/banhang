@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <p class="text-muted lead">Giỏ hàng hiện có xxx sản phẩm.</p>
+            <p class="text-muted lead">Giỏ hàng hiện có &nbsp;<span id="them"></span>&nbsp; sản phẩm.</p>
         </div>
 
 
@@ -24,58 +24,68 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                            reset( $_SESSION['daySoLuong'] );
-                            reset( $_SESSION['dayDonGia'] );
-                            reset( $_SESSION['dayTenDT'] );
-                            $tongtien = $tongsoluong = 0;
-                            ?>
-                            <?php for ($i = 0; $i< count( $_SESSION['daySoLuong']) ; $i++) { ?>
-                            <?php
-                            $idDT = key( $_SESSION['daySoLuong'] );
-                            $tendt = current( $_SESSION['dayTenDT'] );
-                            $soluong = current( $_SESSION['daySoLuong'] );
-                            $dongia = current( $_SESSION['dayDonGia'] );
-                            $tien = $dongia*$soluong;
-                            $tongtien+= $tien;
-                            $tongsoluong+= $soluong;
-                            ?>
-
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <img src="img/detailsquare.jpg" alt="<?=$tendt?>">
-                                    </a>
-                                </td>
-                                <td><a href="#"><?=$tendt?></a>
-                                </td>
-                                <td>
-                                    <input type="number" value="<?=$soluong?>" class="form-control" name="soluong_arr[]"  >
-                                    <input type="hidden" value="<?=$idDT?>" name="iddt_arr[]">
-
-                                </td>
-                                <td><?=number_format($dongia,0, ",",".");?> VND</td>
-                                <td><?=number_format($tien,0, ",",".");?> VND</td>
-                                <td><?=number_format($tongtien,0, ",",".");?> VND</td>
-                                <a href="capnhatGH.php?action=remove&idDT=<?=$idDT?>"><i class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
                                 <?php
-                                next( $_SESSION['daySoLuong'] );
-                                next( $_SESSION['dayDonGia'] );
-                                next( $_SESSION['dayTenDT'] );
+                                    reset( $_SESSION['daySoLuong'] );
+                                    reset( $_SESSION['dayDonGia'] );
+                                    reset( $_SESSION['dayTenDT'] );
+                                    reset( $_SESSION['giamgia'] );
+                                    reset( $_SESSION['hinh'] );
+                                    $tongtien = $tongsoluong = 0;
                                 ?>
-                            <?php } //for ?>
+                                <?php for ($i = 0; $i< count( $_SESSION['daySoLuong']) ; $i++) { ?>
+                                    <?php
+                                    $idDT = key( $_SESSION['daySoLuong'] );
+                                    $tendt = current( $_SESSION['dayTenDT'] );
+                                    $hinh = current( $_SESSION['hinh'] );
+                                    $giamgia = current( $_SESSION['giamgia'] );
+                                    $soluong = current( $_SESSION['daySoLuong'] );
+                                    $dongia = current( $_SESSION['dayDonGia'] );
+                                    $giam =$dongia - $giamgia;
+                                    $tien = ($dongia-$giam)*$soluong;
+                                    $tongtien+= $tien;
+                                    $tongsoluong+= $soluong;
+
+                                    ?>
+
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="upload/hinhchinh/<?=$hinh?>" alt="<?=$tendt?>">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#"><?=$tendt?></a>
+                                        </td>
+                                        <td>
+                                            <input type="number" value="<?=$soluong?>" class="form-control" name="soluong_arr[]"  >
+                                            <input type="hidden" value="<?=$idDT?>" name="iddt_arr[]">
+
+                                        </td>
+                                        <td><?=number_format($dongia,0, ",",".");?> VND</td>
+                                        <td><?=number_format($giam,0, ",",".");?> VND</td>
+                                        <td><?=number_format($tien,0, ",",".");?> VND</td>
+                                        <td>
+                                            <a href="capnhatGH.php?action=remove&idDT=<?=$idDT?>"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                        <?php
+                                        next( $_SESSION['daySoLuong'] );
+                                        next( $_SESSION['dayDonGia'] );
+                                        next( $_SESSION['dayTenDT'] );
+                                        next( $_SESSION['hinh'] );
+                                        ?>
+                                <?php } //for ?>
 
 
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th colspan="5">Total</th>
-                                <th colspan="2">$446.00</th>
+                                <th colspan="5">Tổng tiền:</th>
+                                <th colspan="2"><?=number_format($tongtien,0, ",",".");?> VND</th>
                             </tr>
                             </tfoot>
                         </table>
+                        <p style="display: none" id="tongsoluong"><?=number_format($tongsoluong,0, ",",".");?></p>
 
                     </div>
                     <!-- /.table-responsive -->
@@ -166,19 +176,19 @@
                         <tbody>
                         <tr>
                             <td>Đơn hàng</td>
-                            <th>$446.00</th>
+                            <th><?=number_format($tongtien,0, ",",".");?> VND</th>
                         </tr>
                         <tr>
                             <td>Phí vận chuyển</td>
-                            <th>$10.00</th>
+                            <th>0</th>
                         </tr>
                         <tr>
                             <td>Thuế</td>
-                            <th>$0.00</th>
+                            <th>0</th>
                         </tr>
                         <tr class="total">
                             <td>Tổng tiền</td>
-                            <th>$456.00</th>
+                            <th><?=number_format($tongtien,0, ",",".");?> VND</th>
                         </tr>
                         </tbody>
                     </table>

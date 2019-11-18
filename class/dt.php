@@ -41,16 +41,19 @@ class dt extends goc{
         if ( !isset($_SESSION['daySoLuong']) ) $_SESSION['daySoLuong']=array();
         if ( !isset($_SESSION['dayDonGia']) )  $_SESSION['dayDonGia']=array();
         if ( !isset($_SESSION['dayTenDT']) )   $_SESSION['dayTenDT']=array();
-
+        if ( !isset($_SESSION['hinh']) )   $_SESSION['hinh']=array();
+        if ( !isset($_SESSION['giamgia']) )   $_SESSION['giamgia']=array();
         if ($action=="add") {
             settype($idDT,"int"); if ($idDT<=0) return;
-            $sql="SELECT TenDT,Gia,SoLuongTonKho FROM dienthoai WHERE idDT=$idDT";
+            $sql="SELECT TenDT,Gia,SoLuongTonKho,urlHinh,giaKM FROM dienthoai WHERE idDT=$idDT";
             $kq = $this->db->query($sql);
             if(!$kq) die( $this-> db->error);
             $row = $kq->fetch_assoc();
 
             $_SESSION['dayTenDT'][$idDT] = $row['TenDT'];
             $_SESSION['dayDonGia'][$idDT] = $row['Gia'];
+            $_SESSION['hinh'][$idDT] = $row['urlHinh'];
+            $_SESSION['giamgia'][$idDT] = $row['giaKM'];
             $_SESSION['daySoLuong'][$idDT]+=1;
 
             if ($_SESSION['daySoLuong'][$idDT]>$row['SoLuongTonKho']) $_SESSION['daySoLuong'][$idDT] = $row['SoLuongTonKho'];
@@ -61,6 +64,8 @@ class dt extends goc{
             unset($_SESSION['dayTenDT'][$idDT]);
             unset($_SESSION['dayDonGia'][$idDT]);
             unset($_SESSION['daySoLuong'][$idDT]);
+            unset($_SESSION['hinh'][$idDT]);
+            unset($_SESSION['giamgia'][$idDT]);
         } //remove
         if ($action=="update"){
             $iddt_arr = $_POST['iddt_arr'];
@@ -73,6 +78,8 @@ class dt extends goc{
                 $row = $kq->fetch_assoc();
                 $_SESSION['dayTenDT'][$idDT] = $row['TenDT'];
                 $_SESSION['dayDonGia'][$idDT] = $row['Gia'];
+                $_SESSION['giamgia'][$idDT] = $row['giaKM'];
+                $_SESSION['hinh'][$idDT] = $row['urlHinh'];
                 $_SESSION['daySoLuong'][$idDT] = $soluong;
                 if ($_SESSION['daySoLuong'][$idDT]>$row['SoLuongTonKho']) $_SESSION['daySoLuong'][$idDT] = $row['SoLuongTonKho'];
 
@@ -86,6 +93,68 @@ class dt extends goc{
         if(!$kq) die( $this-> db->error);
         return $kq;
     }
+    function LuuDonHang(&$error){
+        $hoten=$this->db->escape_string( trim(strip_tags( $_SESSION['DonHang']['hoten'] ) ) );
+        $dienthoai = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['dienthoai'] ) ) );
+        $diachi = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['diachi'] ) ) );
+        $email = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['email'] ) ) );
+        $pttt = $this->db->escape_string(  trim( strip_tags( $_SESSION['DonHang']['payment'] ) ) );
+        $ptgh = $this->db->escape_string(  trim( strip_tags( $_SESSION['DonHang']['delivery'] ) ) );
+
+        //kiểm tra dữ liệu
+        if (count($_SESSION['daySoLuong'])==0) $error[] = "Bạn chưa chọn sản phẩm nào";
+        if ($hoten == "") $error[] = "Bạn chưa nhập họ tên";
+        if ($diachi == "") $error[] = "Bạn chưa nhập địa chỉ";
+        if ($email == "") $error[] = "Bạn chưa nhập email";
+        if ($dienthoai== "") $error[] = "Bạn ơi! Điện thoại người nhận chưa có";
+        if ($pttt=="") $error[] = "Bạn chưa chọn phương thức thanh toán";
+        if ($ptgh=="") $error[] = "Bạn chưa chọn phương thức giao hàng";
+        if (count($error)>0) return;
+
+        //lưu dữ liệu vào db
+        if (isset($_SESSION['DonHang']['idDH'])==false) {
+            $sql="INSERT INTO donhang SET tennguoinhan = '$hoten',diachi =
+     '$diachi', dtnguoinhan = '$dienthoai',	idpttt = '$pttt',idptgh=
+     '$ptgh', thoidiemdathang = now() ";
+            $kq = $this->db->query($sql);
+            if(!$kq) die( $this-> db->error);
+            $_SESSION['DonHang']['idDH'] = $this->db->insert_id;
+
+        }else{
+            $idDH = $_SESSION['DonHang']['idDH'];
+            $sql="UPDATE donhang SET tennguoinhan = '$hoten',diachi= 
+     '$diachi', dtnguoinhan = '$dienthoai', idpttt='$pttt',idptgh=
+     '$ptgh', thoidiemdathang = now() 
+	WHERE idDH = $idDH";
+            $kq = $this->db->query($sql) ;
+            if(!$kq) die( $this-> db->error);
+        }
+
+    } //function LuuDonHang
+    function LuuChiTietDonHang(){
+        $sosp = count($_SESSION['daySoLuong']);
+        if ($sosp<=0) {echo "Không có sản phẩm"; return;}
+        if (isset($_SESSION['DonHang']['idDH'])==false){echo "Kô có idDH"; return;}
+        $idDH = $_SESSION['DonHang']['idDH'];
+        $sql = "DELETE FROM donhangchitiet WHERE idDH = $idDH";
+        $this->db->query($sql);
+        reset( $_SESSION['daySoLuong'] );
+        reset( $_SESSION['dayDonGia'] );
+        reset( $_SESSION['dayTenDT'] );
+        for ($i = 0; $i<$sosp ; $i++) {
+            $idDT = key( $_SESSION['daySoLuong'] );
+            $tendt = current( $_SESSION['dayTenDT'] );
+            $soluong = current( $_SESSION['daySoLuong'] );
+            $gia = current( $_SESSION['dayDonGia'] );
+            $sql ="INSERT INTO donhangchitiet (idDH,idDT,TenDT,SoLuong,Gia)
+              VALUES ($idDH, $idDT, '$tendt',$soluong, $gia)";
+            $this->db->query($sql);
+            next( $_SESSION['daySoLuong'] );
+            next( $_SESSION['dayDonGia'] );
+            next( $_SESSION['dayTenDT'] );
+        }//for
+    }//function LuuChiTietDonHang
+
 
 }//dt
 ?>

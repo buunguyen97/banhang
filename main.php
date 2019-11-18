@@ -100,13 +100,13 @@ _________________________________________________________ -->
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>Category full</h1>
+                    <h1>Trang thanh toán</h1>
                 </div>
                 <div class="col-md-5">
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="index.php">Trang chủ</a>
                         </li>
-                        <li>Category full</li>
+                        <li>Thanh toán</li>
                     </ul>
 
                 </div>
@@ -117,15 +117,14 @@ _________________________________________________________ -->
     <div id="content">
         <div class="container">
             <?php
-                if ($p=="giohang") {
-                    $action = $_GET['action']; // để biết phải làm gì:thêm/xoá/cập nhật
-                    $idDT=$_GET['idDT'];       // để biết sản phẩm nào mà thêm hay bớt
-                    $soluong=$_GET['soluong'];  // để biết số lượng bao nhiêu
-                    $dt->CapNhatGioHang($action, $idDT,$soluong);
-                    require "giohang.php";
+            if ($p=="giohang") require "giohang.php";
+            elseif ($p=="thanhtoan1") require "thanhtoan1.php";
+            elseif ($p=="dathang") require "dathang.php";
+            elseif ($p=="thanhtoan2") require "thanhtoan2.php";
+            elseif ($p=="thanhtoan3") require "thanhtoan3.php";
+            elseif ($p=="thanhtoan4") require "thanhtoan4.php";
 
-                }
-                else { ?>
+            else { ?>
             <div class="heading"><h2>SẢN PHẨM MỚI</h2></div>
             <?php $listSP = $dt->SanPhamMoi(18); include "listsp.php"; ?>
 
@@ -202,6 +201,7 @@ _________________________________________________________ -->
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/jquery.parallax-1.1.3.js"></script>
 <script src="js/front.js"></script>
+<script src="js/test.js"></script>
 
 
 </body>
