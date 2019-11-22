@@ -31,6 +31,7 @@
                                     reset( $_SESSION['giamgia'] );
                                     reset( $_SESSION['hinh'] );
                                     $tongtien = $tongsoluong = 0;
+
                                 ?>
                                 <?php for ($i = 0; $i< count( $_SESSION['daySoLuong']) ; $i++) { ?>
                                     <?php

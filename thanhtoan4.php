@@ -1,3 +1,8 @@
+<?php
+if (isset($_POST['payment']))
+    $_SESSION['DonHang']['payment']=$_POST['payment'];
+//print_r($_SESSION);
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-7">
@@ -14,7 +19,6 @@
         </div>
     </div>
 </div>
-</div>
 
 <div id="content">
     <div class="container">
@@ -24,7 +28,7 @@
             <div class="col-md-12 clearfix" id="checkout">
 
                 <div class="box">
-                    <form method="post" action="dathang.php">
+                    <form method="post" action="dat-hang/">
                         <ul class="nav nav-pills nav-justified">
                             <li class="disabled"><a href="#"><i class="fa fa-map-marker"></i> <br>Địa chỉ</a>
                             </li>

@@ -46,7 +46,7 @@ if (isset($_POST['delivery']))
 
                                     <div class="box-footer text-center">
 
-                                        <input type="radio" name="payment" value="khigiaohang"> An toàn nhất.
+                                        <input type="radio" name="payment" value="khigiaohang" checked> An toàn nhất.
                                     </div>
                                 </div>
                             </div>

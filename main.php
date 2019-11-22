@@ -119,11 +119,11 @@ _________________________________________________________ -->
             <?php
             if ($p=="giohang") require "giohang.php";
             elseif ($p=="thanhtoan1") require "thanhtoan1.php";
-            elseif ($p=="dathang") require "dathang.php";
+            elseif ($p=="sptrongloai") require "sptrongloai.php";
             elseif ($p=="thanhtoan2") require "thanhtoan2.php";
             elseif ($p=="thanhtoan3") require "thanhtoan3.php";
             elseif ($p=="thanhtoan4") require "thanhtoan4.php";
-
+            elseif ($p=="dathang") require "dathang.php";
             else { ?>
             <div class="heading"><h2>SẢN PHẨM MỚI</h2></div>
             <?php $listSP = $dt->SanPhamMoi(18); include "listsp.php"; ?>

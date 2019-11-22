@@ -24,14 +24,14 @@ class dt extends goc{
         return $kq;
     }
     function SanPhamBanChay($sosp = 10){
-        $sql="SELECT idDT, TenDT, urlHinh FROM dienthoai WHERE AnHien=1 
+        $sql="SELECT idDT, TenDT, urlHinh,Gia FROM dienthoai WHERE AnHien=1 
    ORDER BY SoLanMua DESC LIMIT 0,$sosp";
         $kq = $this->db->query($sql);
         if(!$kq) die( $this-> db->error);
         return $kq;
     }
     function SanPhamHot($sosp = 10){
-        $sql="SELECT idDT,TenDT,urlHinh FROM dienthoai 
+        $sql="SELECT idDT,TenDT,urlHinh,Gia FROM dienthoai 
    WHERE AnHien=1 AND Hot=1 ORDER BY NgayCapNhat DESC LIMIT 0,$sosp";
         $kq = $this->db->query($sql);
         if(!$kq) die( $this-> db->error);
@@ -93,29 +93,13 @@ class dt extends goc{
         if(!$kq) die( $this-> db->error);
         return $kq;
     }
-    function LuuDonHang(&$error){
-        $hoten=$this->db->escape_string( trim(strip_tags( $_SESSION['DonHang']['hoten'] ) ) );
-        $dienthoai = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['dienthoai'] ) ) );
-        $diachi = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['diachi'] ) ) );
-        $email = $this->db->escape_string(  trim( strip_tags($_SESSION['DonHang']['email'] ) ) );
-        $pttt = $this->db->escape_string(  trim( strip_tags( $_SESSION['DonHang']['payment'] ) ) );
-        $ptgh = $this->db->escape_string(  trim( strip_tags( $_SESSION['DonHang']['delivery'] ) ) );
-
-        //kiểm tra dữ liệu
-        if (count($_SESSION['daySoLuong'])==0) $error[] = "Bạn chưa chọn sản phẩm nào";
-        if ($hoten == "") $error[] = "Bạn chưa nhập họ tên";
-        if ($diachi == "") $error[] = "Bạn chưa nhập địa chỉ";
-        if ($email == "") $error[] = "Bạn chưa nhập email";
-        if ($dienthoai== "") $error[] = "Bạn ơi! Điện thoại người nhận chưa có";
-        if ($pttt=="") $error[] = "Bạn chưa chọn phương thức thanh toán";
-        if ($ptgh=="") $error[] = "Bạn chưa chọn phương thức giao hàng";
-        if (count($error)>0) return;
+    function LuuDonHang($hoten,$diachi,$dienthoai,$pttt,$ptgh){
 
         //lưu dữ liệu vào db
         if (isset($_SESSION['DonHang']['idDH'])==false) {
             $sql="INSERT INTO donhang SET tennguoinhan = '$hoten',diachi =
      '$diachi', dtnguoinhan = '$dienthoai',	idpttt = '$pttt',idptgh=
-     '$ptgh', thoidiemdathang = now() ";
+     '$ptgh',TongTien=123,Tax=1,Shipping=1, thoidiemdathang = now() ";
             $kq = $this->db->query($sql);
             if(!$kq) die( $this-> db->error);
             $_SESSION['DonHang']['idDH'] = $this->db->insert_id;
@@ -124,7 +108,7 @@ class dt extends goc{
             $idDH = $_SESSION['DonHang']['idDH'];
             $sql="UPDATE donhang SET tennguoinhan = '$hoten',diachi= 
      '$diachi', dtnguoinhan = '$dienthoai', idpttt='$pttt',idptgh=
-     '$ptgh', thoidiemdathang = now() 
+     '$ptgh',TongTien=123,Tax=1,Shipping=1, thoidiemdathang = now() 
 	WHERE idDH = $idDH";
             $kq = $this->db->query($sql) ;
             if(!$kq) die( $this-> db->error);
@@ -155,6 +139,41 @@ class dt extends goc{
         }//for
     }//function LuuChiTietDonHang
 
+    function SanPhamTrongLoai($TenLoai,$pageNum, $pageSize,&$totalRows ){
+        $TenLoai = $this->db->escape_string($TenLoai);
+        $startRow = ($pageNum-1)*$pageSize;
+        $sql="SELECT idDT, TenDT, urlHinh,Gia FROM dienthoai  WHERE AnHien = 1
+   AND idLoai in (select idLoai FROM loaisp WHERE TenLoai='$TenLoai') 
+   ORDER BY NgayCapNhat DESC LIMIT $startRow , $pageSize ";
+        $kq = $this->db-> query($sql);
+        if(!$kq) die( $this-> db->error);
+
+        $sql="SELECT count(*) FROM dienthoai WHERE AnHien = 1 
+   AND idLoai in (select idLoai FROM loaisp WHERE TenLoai='$TenLoai')";
+        $rs = $this->db->query($sql) ;
+        $row_rs = $rs->fetch_row();
+        $totalRows = $row_rs[0];
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
+    function pagesList1($baseURL,$totalRows,$pageNum,$pageSize,$offset){
+        if ($totalRows<=0) return "";
+        $totalPages = ceil($totalRows/$pageSize);
+        if ($totalPages<=1) return "";
+        $from = $pageNum - $offset;
+        $to = $pageNum + $offset;
+        if ($from <=0) { $from = 1;   $to = $offset*2; }
+        if ($to > $totalPages) { $to = $totalPages; }
+        $links = "<ul class='pagination'>";
+        for($j = $from; $j <= $to; $j++) {
+            if ($j==$pageNum)
+                $links=$links."<li><a href='$baseURL/$j/' class=active>$j</a></li>";
+            else
+                $links= $links."<li><a href = '$baseURL/$j/'>$j</a></li>";
+        } //for
+        $links= $links."</ul>";
+        return $links;
+    } // function pagesList1
 
 }//dt
 ?>

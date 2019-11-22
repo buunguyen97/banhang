@@ -37,7 +37,7 @@ if (isset($_POST['email']))
 
                                     <div class="box-footer text-center">
 
-                                        <input type="radio" name="delivery" value="giaotannha">Giao tận nhà
+                                        <input type="radio" name="delivery" value="giaotannha" checked>Giao tận nhà
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ if (isset($_POST['email']))
 
                                     <div class="box-footer text-center">
 
-                                        <input type="radio" name="delivery" value="buudien">Giao qua bưu điện.
+                                        <input type="radio" name="delivery"  value="buudien" >Giao qua bưu điện.
                                     </div>
                                 </div>
                             </div>
