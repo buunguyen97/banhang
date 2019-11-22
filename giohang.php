@@ -74,6 +74,7 @@
                                         next( $_SESSION['dayDonGia'] );
                                         next( $_SESSION['dayTenDT'] );
                                         next( $_SESSION['hinh'] );
+                                        next( $_SESSION['giamgia'] );
                                         ?>
                                 <?php } //for ?>
 
@@ -101,6 +102,9 @@
                             </button>
                         </div>
                     </div>
+                    <?php
+                    echo "<pre>"; print_r($_SESSION); exit;
+                    ?>
 
                 </form>
 

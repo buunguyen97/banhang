@@ -124,6 +124,7 @@ _________________________________________________________ -->
             elseif ($p=="thanhtoan3") require "thanhtoan3.php";
             elseif ($p=="thanhtoan4") require "thanhtoan4.php";
             elseif ($p=="dathang") require "dathang.php";
+            elseif ($p=="lienhe") require "contact.php";
             else { ?>
             <div class="heading"><h2>SẢN PHẨM MỚI</h2></div>
             <?php $listSP = $dt->SanPhamMoi(18); include "listsp.php"; ?>
