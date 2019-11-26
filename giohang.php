@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <p class="text-muted lead">Giỏ hàng hiện có &nbsp;<span id="them"></span>&nbsp; sản phẩm.</p>
+            <p class="text-muted lead">Giỏ hàng hiện có &nbsp;<span class="them"></span>&nbsp; sản phẩm.</p>
         </div>
 
 
@@ -58,7 +58,7 @@
                                             <a href="#"><?=$tendt?></a>
                                         </td>
                                         <td>
-                                            <input type="number" value="<?=$soluong?>" class="form-control" name="soluong_arr[]"  >
+                                            <input type="number" style="width: 60px;" value="<?=$soluong?>" class="form-control thaydoi" name="soluong_arr[]"  >
                                             <input type="hidden" value="<?=$idDT?>" name="iddt_arr[]">
 
                                         </td>
@@ -87,7 +87,8 @@
                             </tr>
                             </tfoot>
                         </table>
-                        <p style="display: none" id="tongsoluong"><?=number_format($tongsoluong,0, ",",".");?></p>
+                        <p style="display: none" id="tongsoluong"><?=number_format($tongsoluong,0, ",",".");$_SESSION['TSL']=$tongsoluong;
+                       ?></p>
 
                     </div>
                     <!-- /.table-responsive -->
@@ -97,14 +98,11 @@
                             <a href="<?=BASE_URL?>dien-thoai/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Tiếp tục mua hàng</a>
                         </div>
                         <div class="pull-right">
-                            <button class="btn btn-default"><i class="fa fa-refresh"></i> Cập nhật giỏ hàng</button>
+                            <button id="capnhat" class="btn btn-default capnhat"><i class="fa fa-refresh"></i> Cập nhật giỏ hàng</button>
                             <a class="btn btn-template-main" href="<?=BASE_URL?>thanh-toan-1/">Thanh toán <i class="fa fa-chevron-right"></i></a>
                             </button>
                         </div>
                     </div>
-                    <?php
-                    echo "<pre>"; print_r($_SESSION); exit;
-                    ?>
 
                 </form>
 
@@ -114,56 +112,28 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="box text-uppercase">
-                        <h3>You may also like these products</h3>
+                        <h3>Có thể bạn muốn xem</h3>
                     </div>
                 </div>
-
+                <?php $list = $dt->LayDTngaunhien(rand(37,49));
+                while ($row = $list->fetch_assoc() ) {?>
                 <div class="col-md-3">
                     <div class="product">
                         <div class="image">
                             <a href="shop-detail.html">
-                                <img src="img/product2.jpg" alt="" class="img-responsive image1">
+                                <img src="upload/hinhchinh/<?=$row['urlHinh']?>" alt="" class="img-responsive image1">
                             </a>
                         </div>
                         <div class="text">
-                            <h3><a href="shop-detail.html">Fur coat</a></h3>
-                            <p class="price">$143</p>
+                            <h3><a href="shop-detail.html"><?=$row['TenDT']?></a></h3>
+                            <p class="price"><?=number_format($row['Gia'],0, ",",".");?> VND</p>
 
                         </div>
                     </div>
                     <!-- /.product -->
                 </div>
 
-                <div class="col-md-3">
-                    <div class="product">
-                        <div class="image">
-                            <a href="shop-detail.html">
-                                <img src="img/product3.jpg" alt="" class="img-responsive image1">
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h3><a href="shop-detail.html">Fur coat</a></h3>
-                            <p class="price">$143</p>
-                        </div>
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="col-md-3">
-                    <div class="product">
-                        <div class="image">
-                            <a href="shop-detail.html">
-                                <img src="img/product1.jpg" alt="" class="img-responsive image1">
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h3><a href="shop-detail.html">Fur coat</a></h3>
-                            <p class="price">$143</p>
-                        </div>
-                    </div>
-                    <!-- /.product -->
-                </div>
-
+                <?php } ?>
             </div>
 
         </div>

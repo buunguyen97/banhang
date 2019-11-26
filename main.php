@@ -118,6 +118,7 @@ _________________________________________________________ -->
         <div class="container">
             <?php
             if ($p=="giohang") require "giohang.php";
+            elseif ($p=="chitiet") require "chitiet.php";
             elseif ($p=="thanhtoan1") require "thanhtoan1.php";
             elseif ($p=="sptrongloai") require "sptrongloai.php";
             elseif ($p=="thanhtoan2") require "thanhtoan2.php";

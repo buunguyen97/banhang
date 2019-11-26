@@ -45,7 +45,7 @@ class dt extends goc{
         if ( !isset($_SESSION['giamgia']) )   $_SESSION['giamgia']=array();
         if ($action=="add") {
             settype($idDT,"int"); if ($idDT<=0) return;
-            $sql="SELECT TenDT,Gia,SoLuongTonKho,urlHinh,giaKM FROM dienthoai WHERE idDT=$idDT";
+            $sql="SELECT TenDT,Gia,SoLuongTonKho,urlHinh,GiaKM FROM dienthoai WHERE idDT=$idDT";
             $kq = $this->db->query($sql);
             if(!$kq) die( $this-> db->error);
             $row = $kq->fetch_assoc();
@@ -53,7 +53,7 @@ class dt extends goc{
             $_SESSION['dayTenDT'][$idDT] = $row['TenDT'];
             $_SESSION['dayDonGia'][$idDT] = $row['Gia'];
             $_SESSION['hinh'][$idDT] = $row['urlHinh'];
-            $_SESSION['giamgia'][$idDT] = $row['giaKM'];
+            $_SESSION['giamgia'][$idDT] = $row['GiaKM'];
             $_SESSION['daySoLuong'][$idDT]+=1;
 
             if ($_SESSION['daySoLuong'][$idDT]>$row['SoLuongTonKho']) $_SESSION['daySoLuong'][$idDT] = $row['SoLuongTonKho'];
@@ -78,7 +78,7 @@ class dt extends goc{
                 $row = $kq->fetch_assoc();
                 $_SESSION['dayTenDT'][$idDT] = $row['TenDT'];
                 $_SESSION['dayDonGia'][$idDT] = $row['Gia'];
-                $_SESSION['giamgia'][$idDT] = $row['giaKM'];
+                $_SESSION['giamgia'][$idDT] = $row['GiaKM'];
                 $_SESSION['hinh'][$idDT] = $row['urlHinh'];
                 $_SESSION['daySoLuong'][$idDT] = $soluong;
                 if ($_SESSION['daySoLuong'][$idDT]>$row['SoLuongTonKho']) $_SESSION['daySoLuong'][$idDT] = $row['SoLuongTonKho'];
@@ -174,6 +174,19 @@ class dt extends goc{
         $links= $links."</ul>";
         return $links;
     } // function pagesList1
+    function layHinhSP($idDT, $sohinh){
+        $sql="SELECT urlHinh FROM hinh  WHERE AnHien = 1 AND
+         idDT=$idDT LIMIT 0, $sohinh";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
+    function LayDTngaunhien($idLoai){
+        $sql="SELECT idDT, TenDT, urlHinh,Gia FROM dienthoai WHERE AnHien = 1 AND idLoai =$idLoai LIMIT 0,3  ";
+        $kq = $this->db-> query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
 
 }//dt
 ?>

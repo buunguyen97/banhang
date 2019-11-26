@@ -16,6 +16,7 @@ _________________________________________________________ -->
                         <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                         <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                         <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+
                     </div>
 
                     <div class="login">
@@ -77,6 +78,11 @@ _________________________________________________________ -->
 
                         <li>
                             <a href="<?=BASE_URL?>gioi-thieu/">Giới thiệu</a>
+                        </li>
+                        <li class="use-yamm yamm-fw">
+                            <a href="<?=BASE_URL?>gio-hang/"  ><i class="fa fa-shopping-cart"></i><span class="badge" style="margin-left: -7px;"><?=$_SESSION['TSL']
+                                    ?></span></a>
+
                         </li>
 
                     </ul>
