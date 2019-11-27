@@ -50,12 +50,12 @@
 
                                     <tr>
                                         <td>
-                                            <a href="#">
+                                            <a>
                                                 <img src="upload/hinhchinh/<?=$hinh?>" alt="<?=$tendt?>">
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="#"><?=$tendt?></a>
+                                            <a><?=$tendt?></a>
                                         </td>
                                         <td>
                                             <input type="number" style="width: 60px;" value="<?=$soluong?>" class="form-control thaydoi" name="soluong_arr[]"  >
@@ -120,12 +120,12 @@
                 <div class="col-md-3">
                     <div class="product">
                         <div class="image">
-                            <a href="shop-detail.html">
+                            <a href="<?=BASE_URL."dien-thoai/". $row['idDT']?>.html">
                                 <img src="upload/hinhchinh/<?=$row['urlHinh']?>" alt="" class="img-responsive image1">
                             </a>
                         </div>
                         <div class="text">
-                            <h3><a href="shop-detail.html"><?=$row['TenDT']?></a></h3>
+                            <h3><a href="<?=BASE_URL."dien-thoai/". $row['idDT']?>.html"><?=$row['TenDT']?></a></h3>
                             <p class="price"><?=number_format($row['Gia'],0, ",",".");?> VND</p>
 
                         </div>

@@ -43,6 +43,7 @@ if (count($error)==0){
     unset($_SESSION['dayDonGia']);
     unset($_SESSION['daySoLuong']);
     unset($_SESSION['DonHang']);
+    unset($_SESSION['TSL']);
 }
 ?>
 <div class="container"> <div class="row">

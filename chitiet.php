@@ -14,6 +14,8 @@ $rowCT = $ct->fetch_assoc();
 
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
 <div class="container">
 
     <div class="row">
@@ -21,7 +23,7 @@ $rowCT = $ct->fetch_assoc();
 
         <div class="col-md-9">
 
-            <p class="lead"<?=$rowCT['MoTa']?>
+            <p class="lead font-weight-bold"><?=$rowCT['TenDT']?>
             </p>
             <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Cuộn để xem chi tiết sản phẩm</a>
             </p>
@@ -42,6 +44,7 @@ $rowCT = $ct->fetch_assoc();
 
 
                             <p class="price"><?=number_format($rowCT['Gia'],0, ",",".");?> VND</p>
+                            <p class=" price2">Giá khuyễn mãi:   <span ><?=number_format($rowCT['GiaKM'],0, ",",".");?></span> VND</p>
 
                             <p class="text-center">
                                 <a href="<?=BASE_URL."dien-thoai/". $rowCT['idDT']?>.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
@@ -69,14 +72,40 @@ $rowCT = $ct->fetch_assoc();
             </div>
 
 
-            <div class="box" id="details">
-                <h4>Giới thiệu</h4>
-                <div id="gioithieu"><?=$rowCT['baiviet']?></div>
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link  active" href="#profile" role="tab" data-toggle="tab" aria-selected="true"><h4>Giới thiệu</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"> <h4>Mô tả</h4></a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="profile">
+                    <div class="box" id="details">
+
+                        <div id="gioithieu"><?=$rowCT['baiviet']?></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="buzz">
+                    <div id="gioithieu">
+                        <?php
+                            $arr = explode(',',  $rowCT['MoTa']);
+                            foreach ($arr as $key => $value){
+                                ?>
+                                <h4>- <?=$value?></h4>
+                            <?php
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
 
-
             <div class="box social" id="product-social">
-                <h4>Show it to your friends</h4>
+                <h4>Gửi tới bạn bè cùng xem</h4>
                 <p>
                     <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                     <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
@@ -96,12 +125,12 @@ $rowCT = $ct->fetch_assoc();
                     <div class="col-md-3">
                         <div class="product">
                             <div class="image">
-                                <a href="shop-detail.html">
+                                <a href="<?=BASE_URL."dien-thoai/". $row['idDT']?>.html">
                                     <img src="upload/hinhchinh/<?=$row['urlHinh']?>" alt="" class="img-responsive image1">
                                 </a>
                             </div>
                             <div class="text">
-                                <h3><a href="shop-detail.html"><?=$row['TenDT']?></a></h3>
+                                <h3><a href="<?=BASE_URL."dien-thoai/". $row['idDT']?>.html"><?=$row['TenDT']?></a></h3>
                                 <p class="price"><?=number_format($row['Gia'],0, ",",".");?> VND</p>
 
                             </div>
