@@ -87,7 +87,7 @@
                             </tr>
                             </tfoot>
                         </table>
-                        <p style="display: none" id="tongsoluong"><?=number_format($tongsoluong,0, ",",".");$_SESSION['TSL']=$tongsoluong;
+                        <p style="display: none" id="tongsoluong"><?=number_format($tongsoluong,0, ",",".");
                        ?></p>
 
                     </div>

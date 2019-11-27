@@ -26,10 +26,11 @@ if(isset($_SESSION['successupdate'])){
                 <thead>
                 <tr>
                     <th>Tên ĐT</th>
-                    <th>Mô tả</th>
+                    <th class="sorting_2">Mô tả</th>
                     <th>Giá /Giá KM</th>
                     <th>Sô Lượng Trong Kho</th>
                     <th>Số Lượng Mua</th>
+                    <th>Ẩn hiiện</th>
                     <th>Cập Nhật/Xóa</th>
                 </tr>
                 </thead>
@@ -49,6 +50,7 @@ if(isset($_SESSION['successupdate'])){
                         </td>
                         <td><?=$k['SoLuongTonKho']?></td>
                         <td><?=$k['SoLanMua']?></td>
+                        <td><?=$k['AnHien']?></td>
                         <td>
                             <a href="?p=dienthoai_sua&idDT=<?=$k['idDT']?>" class="btn bg-custom waves-effect text-white">Cập nhật</a> &nbsp;
                             <a href="dienthoai_xoa.php?idDT=<?=$k['idDT']?>" class="btn bg-danger waves-effect text-white" onClick="return confirm('Xóa hả')">Xóa</a>

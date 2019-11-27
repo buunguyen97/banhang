@@ -36,7 +36,7 @@ $qt = new quantri();
         <link href="plugins/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <script src="js/modernizr.min.js"></script>
 
-
+        <link href="css/test.css" rel="stylesheet" type="text/css" />
     </head>
 
 
@@ -292,8 +292,8 @@ $qt = new quantri();
         <script src="js/test.js"></script>
         <!-- Required datatable js -->
 
-<!--         định dạng thay đổi-->
-<!--        <script src="plugins/datatables/jquery.dataTables.min.js"></script>-->
+<!--         mất tìm kiêm-->
+        <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 
 
         <script src="plugins/datatables/dataTables.bootstrap4.min.js"></script>
@@ -313,6 +313,7 @@ $qt = new quantri();
 
 <!--        Làm co tin lại-->
 <!--        <script src="plugins/datatables/dataTables.responsive.min.js"></script>-->
+
         <script src="plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- Selection table -->

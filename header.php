@@ -80,7 +80,7 @@ _________________________________________________________ -->
                             <a href="<?=BASE_URL?>gioi-thieu/">Giới thiệu</a>
                         </li>
                         <li class="use-yamm yamm-fw">
-                            <a href="<?=BASE_URL?>gio-hang/"  ><i class="fa fa-shopping-cart"></i><span class="badge" style="margin-left: -7px;"><?=(isset($_SESSION['TSL']))?$_SESSION['TSL']:0?></span></a>
+                            <a href="<?=BASE_URL?>gio-hang/"  ><i class="fa fa-shopping-cart"></i><span class="badge" style="margin-left: -7px;"><?=array_sum($_SESSION['daySoLuong'])?></span></a>
 
                         </li>
 
