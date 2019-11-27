@@ -21,7 +21,7 @@ _________________________________________________________ -->
 
                     <div class="login">
                         <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Đăng nhập</span></a>
-                        <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Đăng ký</span></a>
+                        <a href="<?=BASE_URL?>dang-ky/"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Đăng ký</span></a>
                     </div>
 
                 </div>

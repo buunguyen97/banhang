@@ -187,6 +187,84 @@ class dt extends goc{
         if(!$kq) die( $this-> db->error);
         return $kq;
     }
+    function GuiMail($to, $from, $from_name, $subject, $body, $username, $password, &$error){
+        $error="";
+        require_once "class/class.phpmailer.php";
+        require_once "class/class.smtp.php";
+        try {
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;  //  1=errors and messages, 2=messages only
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = $username;
+            $mail->Password = $password;
+            $mail->SetFrom($from, $from_name);
+            $mail->Subject = $subject;
+            $mail->MsgHTML($body);// noi dung chinh cua mail
+            $mail->AddAddress($to);
+            $mail->CharSet="utf-8";
+            $mail->IsHTML(true);
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ));
+            if(!$mail->Send()) {$error='Loi:'.$mail->ErrorInfo; return false;}
+            else { $error = ''; return true; }
+        }
+        catch (phpmailerException $e) { echo "<pre>".$e->errorMessage(); }
+    }//function
+    function DangKyThanhVien(&$loi){
+        $thanhcong = true;
+        //tiếp nhận dữ liệu từ form
+        $email = $this->db->escape_string(trim(strip_tags($_POST['mail'])));
+        $pass=$this->db->escape_string(trim(strip_tags($_POST['pass'])));
+        $repass=$this->db->escape_string(trim(strip_tags($_POST['repass'])));
+        $ht = $this->db->escape_string(trim(strip_tags($_POST['ht'])));
+        $dc=$this->db->escape_string(trim(strip_tags($_POST['dc'])));
+        $dt=$this->db->escape_string(trim(strip_tags($_POST['dt'])));
+        $p = $_POST['phai']; settype($phai, "int");
+        //kiễm tra dữ liệu
+        if ($pass == NULL) {
+            $thanhcong = false;
+            $loi['pass'] = "Bạn chưa nhập mật khẩu";
+        }elseif (strlen($pass)<6 ) {
+            $thanhcong = false;
+            $loi['pass'] = "Mật khẩu của bạn phải >=6 ký tự";
+        }
+        if ($repass == NULL) {
+            $thanhcong=false;
+            $loi['repass'] = "Nhập lại mật khẩu đi";
+        }elseif ($pass != $repass ) {
+            $thanhcong = false;
+            $loi['repass'] = "Mật khẩu 2 lần không giống";
+        }
+        if ($hoten == NULL){
+            $thanhcong = false;
+            $loi['hoten']= "Chưa nhập họ tên";
+        }
+
+
+        // chèn dữ liệu
+        if ($thanhcong==true) {
+            $mahoa = md5($pass);
+            $sql = "INSERT INTO  users  
+     SET email='$email', password= '$mahoa', hoten='$ht', diachi='$dc', 
+         dienthoai='$dt',gioitinh=$p, ngaydangky=NOW()";
+            $kq = $this->db->query($sql) ;
+        }
+        return $thanhcong;
+    }//DangKyThanhVien
+    function CheckEmail($email){
+        $sql="select idUser from users where email ='{$email}'";
+        $kq = $this->db->query($sql);
+        if ($kq->num_rows>0) return false;
+        else return true;
+    }
 
 }//dt
 ?>
