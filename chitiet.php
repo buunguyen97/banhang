@@ -47,7 +47,7 @@ $rowCT = $ct->fetch_assoc();
                             <p class=" price2">Giá khuyễn mãi:   <span ><?=number_format($rowCT['GiaKM'],0, ",",".");?></span> VND</p>
 
                             <p class="text-center">
-                                <a href="<?=BASE_URL."dien-thoai/". $rowCT['idDT']?>.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                <a href="capnhatGH.php?action=add&idDT=<?=$rowCT['idDT']?>" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                 <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
                                 </button>
                             </p>

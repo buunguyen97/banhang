@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee4fddc0-df01-4560-b0be-a15cad5b00de" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/captcha.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checklienhe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dangky.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dangkytc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lienhe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/dt.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/dt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tab.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chitiet.php" beforeDir="false" afterPath="$PROJECT_DIR$/chitiet.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,143 +12,105 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4037108">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="giohang.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/giohang.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2193">
-                  <caret line="129" selection-start-line="129" selection-end-line="129" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="contact3.html" pinned="false" current-in-tab="false">
-            <entry file="file://D:/banhang-source/banhang-source/universal-1-0/universal/contact3.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="179">
-                  <caret line="572" column="18" selection-start-line="474" selection-start-column="10" selection-end-line="572" selection-end-column="18" />
-                  <folding>
-                    <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="lienhe.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lienhe.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-                  <folding>
-                    <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="checklienhe.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/checklienhe.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.htaccess">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="123" column="59" selection-start-line="123" selection-start-column="59" selection-end-line="123" selection-end-column="59" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/header.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dt.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/class/dt.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="619">
-                  <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="checklienhe.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/checklienhe.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="captcha.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/captcha.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="344">
-                  <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dangky.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/dangky.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="680">
-                  <caret line="40" column="72" lean-forward="true" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
-                  <folding>
-                    <element signature="e#1782#1788#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dangkytc.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dangkytc.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="giohang.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/giohang.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chitiet.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chitiet.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listsp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/listsp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="76" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact3.html" pinned="false" current-in-tab="false">
+        <entry file="file://D:/banhang-source/banhang-source/universal-1-0/universal/contact3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="572" column="18" selection-start-line="474" selection-start-column="10" selection-end-line="572" selection-end-column="18" />
+              <folding>
+                <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lienhe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lienhe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checklienhe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checklienhe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="123" column="59" selection-start-line="123" selection-start-column="59" selection-end-line="123" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dt.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class/dt.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -241,7 +191,6 @@
         <option value="$PROJECT_DIR$/tab.php" />
         <option value="$PROJECT_DIR$/giohang.php" />
         <option value="$PROJECT_DIR$/dathang.php" />
-        <option value="$PROJECT_DIR$/chitiet.php" />
         <option value="$PROJECT_DIR$/captcha.php" />
         <option value="$PROJECT_DIR$/css/style.default.css" />
         <option value="$PROJECT_DIR$/checklienhe.php" />
@@ -253,6 +202,7 @@
         <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/class/dt.php" />
         <option value="$PROJECT_DIR$/dangky.php" />
+        <option value="$PROJECT_DIR$/chitiet.php" />
       </list>
     </option>
   </component>
@@ -265,7 +215,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -348,15 +298,15 @@
       <workItem from="1574738644605" duration="9856000" />
       <workItem from="1574761760408" duration="7208000" />
       <workItem from="1574822096558" duration="5121000" />
-      <workItem from="1574829831302" duration="9197000" />
+      <workItem from="1574829831302" duration="10056000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153005000" />
+    <option name="totallyTimeSpent" value="153864000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16684435" />
@@ -368,7 +318,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3373232" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3373232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,13 +457,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tab.php" />
-    <entry file="file://$PROJECT_DIR$/listsp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="71" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thanhtoan4.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -528,24 +471,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/giohang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.default.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="772">
           <caret line="3567" column="13" selection-start-line="3567" selection-start-column="13" selection-end-line="3567" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chitiet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -568,8 +497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/checklienhe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -612,6 +541,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/class/dt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/giohang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dangky.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="40" column="72" lean-forward="true" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
+          <folding>
+            <element signature="e#1782#1788#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dangkytc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -619,20 +572,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/dt.php">
+    <entry file="file://$PROJECT_DIR$/listsp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+        <state relative-caret-position="374">
+          <caret line="22" column="76" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="76" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dangky.php">
+    <entry file="file://$PROJECT_DIR$/chitiet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="72" lean-forward="true" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
-          <folding>
-            <element signature="e#1782#1788#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="280">
+          <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
         </state>
       </provider>
     </entry>
