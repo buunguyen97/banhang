@@ -252,9 +252,10 @@ class dt extends goc{
         // chèn dữ liệu
         if ($thanhcong==true) {
             $mahoa = md5($pass);
+            $rd = md5(rand(1,99999));
             $sql = "INSERT INTO  users  
      SET email='$email', password= '$mahoa', hoten='$ht', diachi='$dc', 
-         dienthoai='$dt',gioitinh=$p, ngaydangky=NOW()";
+         dienthoai='$dt',gioitinh=$p,active=0,randomkey='$rd',  ngaydangky=NOW()";
             $kq = $this->db->query($sql) ;
         }
         return $thanhcong;

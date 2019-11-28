@@ -3567,3 +3567,6 @@ a.list-group-item.active > .badge,
 .thongbao{
   color: red;
 }
+.loading1{
+  display: none;
+}

@@ -207,6 +207,8 @@ _________________________________________________________ -->
 <script src="js/jquery.parallax-1.1.3.js"></script>
 <script src="js/front.js"></script>
 <script src="js/test.js"></script>
+<script src="js/checkdangki.js"></script>
+<script src="js/checkmail.js"></script>
 
 
 </body>

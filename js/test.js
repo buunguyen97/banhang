@@ -6,7 +6,8 @@ $(document).ready(function(){
             $('.capnhat').click();
     });
 
-
+    // ẩn khi  load khi gửi mail liên hệ
+    $("#loadinghinh").addClass('loading1');
 
 
 
@@ -35,7 +36,11 @@ $(document).ready(function(){
         $("#noticap").removeClass("thongbao");
     });
     $('#checklienhe').click(function() {
-
+        //kiểm tra email
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
 
         var checkformUrl = "checklienhe.php";
         var firstname = $("#firstname").val();
@@ -49,27 +54,23 @@ $(document).ready(function(){
             $("#noti").addClass("thongbao");
             return false;
         }
-        if (lastname == "") {
+        else if (lastname == "") {
             $("#notiname").html("Ban chưa nhập họ");
             $("#notiname").addClass("thongbao");
             return false;
         }
-        if (emaillh == "") {
+        else if (emaillh == "") {
             $("#notiemail").html("Ban chưa nhập email");
             $("#notiemail").addClass("thongbao");
             return false;
         }
-        //kiểm tra email
-        function isEmail(email) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            return regex.test(email);
-        }
-        if( !isEmail(emaillh)) {
+
+        else if( !isEmail(emaillh)) {
             $("#notiemail").html("Email không hợp lệ");
             $("#notiemail").addClass("thongbao");
             return false;
         }
-        if (sublh == "") {
+        else if (sublh == "") {
             $("#notisub").html("Ban chưa nhập tiêu đề");
             $("#notisub").addClass("thongbao");
             return false;
@@ -79,10 +80,13 @@ $(document).ready(function(){
             $("#notinoidung").addClass("thongbao");
             return false;
         }
-        if (cap == "") {
+       else if (cap == "") {
             $("#noticap").html("Bạn chưa nhập mã");
             $("#noticap").addClass("thongbao");
             return false;
+        }
+        else {
+            $("#loadinghinh").removeClass('loading1');
         }
 
         $.ajax({
@@ -93,6 +97,12 @@ $(document).ready(function(){
 
 
                 if (result.result == 'co') {
+
+
+                    // hiện khi  load khi gửi mail liên hệ
+                    $("#loadinghinh").addClass('loading1');
+
+
 
                     // hiện thị thông báo khi cmt thành công
                     $("#thongbao").html("Cảm ơn bạn, ý kiến đã được ghi nhận.");

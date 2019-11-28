@@ -15,6 +15,7 @@
 
                 <p class="lead" >Vui lòng điền thông tin trong mẫu dưới để liên hệ với chúng tôi (24/24)</p>
 
+
                 <div class="heading">
                     <h3>Liên hệ với chúng tôi</h3>
                 </div>
@@ -63,6 +64,9 @@
                                        placeholder="Nhập chữ trong hình">
                                 <p id="noticap"></p>
 
+                            </div>
+                            <div class="loading">
+                                <img id="loadinghinh"  style="width: 40px; position: absolute;top: 0;  right: 50%;" src="img/giphy.gif">
                             </div>
                         </div>
 
