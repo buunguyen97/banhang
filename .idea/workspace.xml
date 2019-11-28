@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee4fddc0-df01-4560-b0be-a15cad5b00de" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/css/test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dienthoai_ds.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dienthoai_ds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/captcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/giohang.php" beforeDir="false" afterPath="$PROJECT_DIR$/giohang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-    </list>
+    <list default="true" id="ee4fddc0-df01-4560-b0be-a15cad5b00de" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +107,7 @@
       <workItem from="1574761760408" duration="7208000" />
       <workItem from="1574822096558" duration="5121000" />
       <workItem from="1574829831302" duration="9197000" />
-      <workItem from="1574849719266" duration="7351000" />
+      <workItem from="1574849719266" duration="7509000" />
     </task>
     <servers />
   </component>
