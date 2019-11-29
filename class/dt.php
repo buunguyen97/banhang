@@ -218,47 +218,17 @@ class dt extends goc{
         }
         catch (phpmailerException $e) { echo "<pre>".$e->errorMessage(); }
     }//function
-    function DangKyThanhVien(&$loi){
-        $thanhcong = true;
-        //tiếp nhận dữ liệu từ form
-        $email = $this->db->escape_string(trim(strip_tags($_POST['mail'])));
-        $pass=$this->db->escape_string(trim(strip_tags($_POST['pass'])));
-        $repass=$this->db->escape_string(trim(strip_tags($_POST['repass'])));
-        $ht = $this->db->escape_string(trim(strip_tags($_POST['ht'])));
-        $dc=$this->db->escape_string(trim(strip_tags($_POST['dc'])));
-        $dt=$this->db->escape_string(trim(strip_tags($_POST['dt'])));
-        $p = $_POST['phai']; settype($phai, "int");
-        //kiễm tra dữ liệu
-        if ($pass == NULL) {
-            $thanhcong = false;
-            $loi['pass'] = "Bạn chưa nhập mật khẩu";
-        }elseif (strlen($pass)<6 ) {
-            $thanhcong = false;
-            $loi['pass'] = "Mật khẩu của bạn phải >=6 ký tự";
-        }
-        if ($repass == NULL) {
-            $thanhcong=false;
-            $loi['repass'] = "Nhập lại mật khẩu đi";
-        }elseif ($pass != $repass ) {
-            $thanhcong = false;
-            $loi['repass'] = "Mật khẩu 2 lần không giống";
-        }
-        if ($hoten == NULL){
-            $thanhcong = false;
-            $loi['hoten']= "Chưa nhập họ tên";
-        }
+    function DangKyThanhVien($email,$pass,$ht,$dc,$dt,$p){
 
-
-        // chèn dữ liệu
-        if ($thanhcong==true) {
             $mahoa = md5($pass);
-            $rd = md5(rand(1,99999));
+             $rd = md5(rand(1,99999));
             $sql = "INSERT INTO  users  
-     SET email='$email', password= '$mahoa', hoten='$ht', diachi='$dc', 
-         dienthoai='$dt',gioitinh=$p,active=0,randomkey='$rd',  ngaydangky=NOW()";
+             SET email='$email', password= '$mahoa', hoten='$ht', diachi='$dc', 
+                 dienthoai='$dt',gioitinh=$p,active=0,randomkey='$rd',  ngaydangky=NOW()";
             $kq = $this->db->query($sql) ;
-        }
-        return $thanhcong;
+            if(!$kq) die( $this-> db->error);
+            return $kq;
+
     }//DangKyThanhVien
     function CheckEmail($email){
         $sql="select idUser from users where email ='{$email}'";

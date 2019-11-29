@@ -2249,6 +2249,7 @@ fieldset[disabled] .btn-template-primary.active {
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  margin: auto;
 }
 @media (max-width: 767px) {
   .product .image img.img-responsive {
@@ -3166,13 +3167,14 @@ body {
   color: #555555;
 }
 a {
-  color: #38a7bb;
+  color: #777777;
   text-decoration: none;
+  font-weight: bold;
 }
 a:hover,
 a:focus {
-  color: #267280;
-  text-decoration: underline;
+  color: #4a4646;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -3569,4 +3571,10 @@ a.list-group-item.active > .badge,
 }
 .loading1{
   display: none;
+}
+.an{
+  display: none;
+}
+.hien{
+  display: inline;
 }

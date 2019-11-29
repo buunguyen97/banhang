@@ -49,20 +49,27 @@ $(document).ready(function () {
     });
     $('#dt').blur(function() {
         var dt = $("#dt").val();
-        if((dt.length)<10){
+        if((($("#dt").val()).length)>0 && (($("#dt").val()).length)<10){
             $("#notidt").html("Số điện thoại k đúng");
             $("#notidt").addClass("thongbao");
             return false;
         }
 
     });
+    $('#pass').blur(function() {
+        var pass = $("#pass").val();
+        if((pass.length)<6 ){
+            $("#notip").html("Mật khẩu nhiều hơn 5 chữ số");
+            $("#notip").addClass("thongbao");
+            return false;
+        }
 
+    });
     $('#dangki').click(function() {
         function isEmail(email) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(email);
         }
-        var checkformUrl = "checklienhe.php";
         var mail = $("#mail").val();
         var pass = $("#pass").val();
         var repass = $("#repass").val();
@@ -114,11 +121,16 @@ $(document).ready(function () {
 
                 if (result.result == 'co') {
 
-
-
+                    $("#contentdk").addClass("an");
+                    $("#contenttc").removeClass("an");
+                }
+                if (result == 'mật khẩu không đúng') {
+                    document.location='main.php?p=dangkytc';
+                    $("#noticap").html("Mã không đúng");
+                    $("#noticap").addClass("thongbao");
+                    return false;
 
                 }
-
 
             },
             error: function () {

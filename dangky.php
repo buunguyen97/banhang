@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-8" id="contentdk">
     <form action="" method="post" id="dangky">
         <div class="form-group row">
             <div class="col-md-3"> <label for="mail">Email</label> </div>
@@ -39,7 +39,7 @@
         <div class="form-group row">
             <div class="col-md-3"> <label for="dt">Điện thoại</label> </div>
             <div class="col-md-9">
-                <input type="tel" class="form-control" name="dt" id="dt" pattern="\d{10,10}" >
+                <input type="tel" class="form-control" name="dt" id="dt" pattern="\d{10,10}" maxlength="10" >
                 <p id="notidt"></p>
             </div>
         </div>
@@ -65,6 +65,13 @@
         </div>
     </form>
 </div>
-<div class="col-md-4">
-
+<div class="text-center an" id="contenttc" style="    padding: 70px;
+    font-size: 18px;">
+    <div class="heading"> <h2>Đăng ký thành công</h2> </div>
+    <div class="alert alert-success">
+        <p>Chào mừng thành viên mới. </p>
+        <p>Thông tin của bạn đã được ghi nhận. </p>
+        <p>Mời bạn check mail để kích hoạt tài khoản.</p>
+    </div>
 </div>
+

@@ -1,13 +1,30 @@
 <?php
-$loi = array();
-$loi_str="";
-if (isset($_POST['mail'])){
-    $thanhcong = $dt->DangKyThanhVien($loi);
-    if ($thanhcong==true) {
-        echo "<script>document.location='main.php?p=dangkytc';</script>";
+    session_start();
+    require_once "class/dt.php";
+    $t = new dt();
+    $capcode = $_SESSION['captcha_code'];
+    $email =trim(strip_tags($_POST['mail']));
+    $pass = trim(strip_tags($_POST['pass']));
+    $repass =trim(strip_tags($_POST['repass']));
+    $ht = trim(strip_tags($_POST['hoten']));
+    $dc = trim(strip_tags($_POST['dc']));
+    $dt = trim(strip_tags($_POST['dt']));
+    $cap =trim(strip_tags($_POST['capcha']));
+    $p = $_POST['phai'];
+    settype($phai, "int");
+    $loi = array();
+    $loi_str = "";
+    $data = ['result' => 'khong'];
+    if ($capcode != $cap) {
+        echo "mật khẩu không đúng";
         exit();
+    } else {
+        $t->DangKyThanhVien($email, $pass, $ht, $dc, $dt, $p);
+        $data = ['result' => 'co'];
+
     }
-    else foreach($loi as $s) $loi_str = $loi_str . $s . "<br/>";
-}
+    header('Content-Type: application/json');
+    echo json_encode($data);
+
 
 ?>

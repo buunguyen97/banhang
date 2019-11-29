@@ -107,7 +107,16 @@ _________________________________________________________ -->
 
         <!-- *** HOMEPAGE CAROUSEL END *** -->
     </section>
+    <section class="bar background-gray no-mb">
+        <div class="container">
+            <div class="heading text-center"> <h2>SẢN PHẨM MỚI</h2> </div>
+            <?php
+            $listSP = $dt-> SanPhamMoi(18);
+            require "listsp.php";
+            ?>
+        </div>
 
+    </section>
     <section class="bar background-white">
         <?php require "camket.php" ?>
     </section>
@@ -268,16 +277,7 @@ _________________________________________________________ -->
     </section>
     <!-- /.bar -->
 
-    <section class="bar background-gray no-mb">
-        <div class="container">
-            <div class="heading text-center"> <h2>SẢN PHẨM MỚI</h2> </div>
-            <?php
-            $listSP = $dt-> SanPhamMoi(18);
-            require "listsp.php";
-            ?>
-        </div>
 
-    </section>
 
 
     <!-- *** GET IT ***
@@ -334,7 +334,7 @@ _________________________________________________________ -->
 <script src="js/jquery.parallax-1.1.3.js"></script>
 <script src="js/front.js"></script>
 
-
+<script type="text/javascript" src="http://www.tenmiencuaban.com/scripts/snow.js"></script>
 <!-- owl carousel -->
 <script src="js/owl.carousel.min.js"></script>
 
