@@ -15,16 +15,33 @@
     $loi = array();
     $loi_str = "";
     $data = ['result' => 'khong'];
-    if ($capcode != $cap) {
-        echo "mật khẩu không đúng";
-        exit();
-    } else {
-        $t->DangKyThanhVien($email, $pass, $ht, $dc, $dt, $p);
-        $data = ['result' => 'co'];
+    if(isset($email)){
+        if ($capcode != $cap) {
+            $loi="loi";
+            echo $loi;
+            return false;
+        
+        } else {
+            $t->DangKyThanhVien($email, $pass, $ht, $dc, $dt, $p);
+            $ma = $t->LayMaKH($email);
+            $rd =$ma['randomkey'];
+            $td="Mã kích hoạt";
+          // gửi mã kích hoạt
+            $to = $email;
+            $from = "lebuu555@gmail.com";
+            $pass = "levkeduzupwfbjjl";
+            $topText = "Họ tên: {$ht} <br>Email: {$email}<br>Tiêu đề: {$td}";
+            $nd = $topText . "<br>Nội dung:<hr>" . $rd;
+            $error = "";
+            $t->GuiMail($to, $from, $fromName = "Mã kích hoạt", $td, $nd, $from, $pass,$error);
+            $_SESSION['mailkh']=$email;
+             $data = ['result' => 'co'];
+    
+        }
+       
+        header('Content-Type: application/json');
+        echo json_encode($data);
 
     }
-    header('Content-Type: application/json');
-    echo json_encode($data);
-
-
+    
 ?>

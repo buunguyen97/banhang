@@ -222,9 +222,10 @@ class dt extends goc{
 
             $mahoa = md5($pass);
              $rd = md5(rand(1,99999));
+             $random = strtoupper(substr($rd,0,6));
             $sql = "INSERT INTO  users  
              SET email='$email', password= '$mahoa', hoten='$ht', diachi='$dc', 
-                 dienthoai='$dt',gioitinh=$p,active=0,randomkey='$rd',  ngaydangky=NOW()";
+                 dienthoai='$dt',gioitinh=$p,active=0,randomkey='$random',  ngaydangky=NOW()";
             $kq = $this->db->query($sql) ;
             if(!$kq) die( $this-> db->error);
             return $kq;
@@ -236,6 +237,20 @@ class dt extends goc{
         if ($kq->num_rows>0) return false;
         else return true;
     }
+    function LayMaKH($email){
+        $sql="select randomkey from users where email ='{$email}'";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        $row = $kq->fetch_assoc();
+        return $row;
+    }
+    function  DanhDauKichHoatUser($rd,$email){
+        $sql="UPDATE users SET active=1 WHERE Email ='$email' AND randomkey='$rd' AND active=0";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
+
 
 }//dt
 ?>

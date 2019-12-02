@@ -118,19 +118,19 @@ $(document).ready(function () {
             data: $("#dangky").serialize(),
             success: function (result) {
 
+                if (result == 'loi') {
 
-                if (result.result == 'co') {
-
-                    $("#contentdk").addClass("an");
-                    $("#contenttc").removeClass("an");
-                }
-                if (result == 'mật khẩu không đúng') {
-                    document.location='main.php?p=dangkytc';
                     $("#noticap").html("Mã không đúng");
                     $("#noticap").addClass("thongbao");
                     return false;
 
                 }
+                if (result.result == 'co') {
+
+                    $("#contentdk").addClass("an");
+                    $("#contenttc").removeClass("an");
+                }
+                
 
             },
             error: function () {

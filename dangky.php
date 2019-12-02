@@ -57,6 +57,9 @@
                 <input class="cap" style="height: 48px" id="capcha" maxlength="4" name="capcha"  placeholder="Nhập chữ trong hình">
                 <p id="noticap"></p>
             </div>
+            <div >
+                <img id="loading"  style="width: 40px; position: absolute; right: 40%;" src="img/giphy.gif">
+            </div>
         </div>
         <div class="form-group row text-center">
             <button type="button" id="dangki" class="btn btn-template-main">
@@ -67,11 +70,32 @@
 </div>
 <div class="text-center an" id="contenttc" style="    padding: 70px;
     font-size: 18px;">
-    <div class="heading"> <h2>Đăng ký thành công</h2> </div>
+    <div class="heading"> <h2>Nhập mã kích hoạt</h2> </div>
     <div class="alert alert-success">
-        <p>Chào mừng thành viên mới. </p>
         <p>Thông tin của bạn đã được ghi nhận. </p>
-        <p>Mời bạn check mail để kích hoạt tài khoản.</p>
-    </div>
-</div>
+        <p>Mã kịch hoạt đã được gửi tới email của bạn.</p>
+        <p>Nhập mã kích hoạt để kích hoạt tài khoản.</p>
+        <div class="form-group row">
 
+            <div class="col-md-12">
+                <input class="cap" style="height: 48px; margin-top: 22px;text-align: center;"  id="makh" name="makh" maxlength="6"   placeholder="Nhập mã kích hoạt" >
+                <p id="noticap"></p>
+            </div>
+            <div class="form-group row text-center">
+                <button type="button" id="kichhoat" name="kichhoat" class="btn btn-template-main">
+                    <i class="fa fa-sign-in"></i> Kích hoạt
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="text-center an" id="kh" style="   padding: 70px;font-size: 18px;">
+    <div class="heading"> <h2>Kích hoạt thành công </h2> </div>
+    <div class="alert alert-success">
+        <p>Tài khoản đã được kích hoạt. </p>
+        <p>Đăng nhập ngay :  <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Đăng nhập</span></a></p>
+
+    </div>
+
+</div>
