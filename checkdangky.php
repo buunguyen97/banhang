@@ -25,13 +25,13 @@
             $t->DangKyThanhVien($email, $pass, $ht, $dc, $dt, $p);
             $ma = $t->LayMaKH($email);
             $rd =$ma['randomkey'];
-            $td="Mã kích hoạt";
+            $td="Bán hàng";
           // gửi mã kích hoạt
             $to = $email;
             $from = "lebuu555@gmail.com";
             $pass = "levkeduzupwfbjjl";
             $topText = "Họ tên: {$ht} <br>Email: {$email}<br>Tiêu đề: {$td}";
-            $nd = $topText . "<br>Nội dung:<hr>" . $rd;
+            $nd = $topText . "<br>Nội dung:<hr>" . "<b>{$rd}</b>";
             $error = "";
             $t->GuiMail($to, $from, $fromName = "Mã kích hoạt", $td, $nd, $from, $pass,$error);
             $_SESSION['mailkh']=$email;

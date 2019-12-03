@@ -250,6 +250,31 @@ class dt extends goc{
         if(!$kq) die( $this-> db->error);
         return $kq;
     }
+    function login($email, $p, &$loi){
+        $loi=array();
+        $email = $this->db->escape_string(trim(strip_tags($email)));
+        $p = $this->db->escape_string(trim(strip_tags($p)));
+        $p_mahoa = md5($p);
+
+        $sql="SELECT * FROM users WHERE email='$email'";
+        $kq = $this->db->query($sql);
+        if ($kq->num_rows==0) {
+            $loi['mail']="<span class='label label-warning'>Email kô có</span>";
+            return FALSE;
+        }
+
+        $sql="SELECT * FROM users WHERE email='$email' AND password ='$p_mahoa'";
+        $kq = $this->db->query($sql);
+        if ($kq->num_rows==0) {
+            $loi['pass']="<span class='label label-info'>Mật khẩu kô đúng</span>";
+            return FALSE;
+        }
+        $row = $kq->fetch_assoc();
+        $_SESSION['login_id']   = $row['idUser'];
+        $_SESSION['login_hoten'] = $row['HoTen'];
+        $_SESSION['login_email'] = $row['Email'];
+        return TRUE;
+    }
 
 
 }//dt

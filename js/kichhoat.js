@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    $("#loading").addClass('loading1');
+
     $('#kichhoat').click(function() {
         //kiểm tra email
-        $("#loading").removeClass('loading1');
+
 
         var checkformUrl = "kichhoat.php";
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
                     $("#contenttc").addClass("an");
                     $("#contentdk").addClass("an");
                     $("#kh").removeClass("an");
-                    $("#loading").addClass('loading1');
+
                 }
                 else {
                     alert("loi roai");

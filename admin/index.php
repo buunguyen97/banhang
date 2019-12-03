@@ -423,7 +423,12 @@ $qt = new quantri();
         </script>
         <!--form wysiwig js-->
         <script src="plugins/tinymce/tinymce.min.js"></script>
+        <script src="js/admin.js"></script>
 
+
+
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function () {
@@ -449,6 +454,12 @@ $qt = new quantri();
                         ]
                     });
                 }
+
+
+                $('#responsive-datatable_wrapper').bind('click','.paginate_button', function () {
+                    $('input[data-toggle="toggle"]').bootstrapToggle();
+                    // $('#responsive-datatable_wrapper').find('input[data-toggle="toggle"]').bootstrapToggle();
+                });
             });
         </script>
 

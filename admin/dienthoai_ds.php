@@ -50,7 +50,8 @@ if(isset($_SESSION['successupdate'])){
                         </td>
                         <td><?=$k['SoLuongTonKho']?></td>
                         <td><?=$k['SoLanMua']?></td>
-                        <td><?=$k['AnHien']?></td>
+                        <td>
+                            <input type="checkbox" <?=($k['AnHien']==1)?"checked":"";?> data-toggle="toggle" data-on="Hiện" data-off="Ẩn" data-onstyle="success" data-offstyle="danger" class="AH3"  value="<?=($k['AnHien']==1)?"1":"0";?>"></td>
                         <td>
                             <a href="?p=dienthoai_sua&idDT=<?=$k['idDT']?>" class="btn bg-custom waves-effect text-white">Cập nhật</a> &nbsp;
                             <a href="dienthoai_xoa.php?idDT=<?=$k['idDT']?>" class="btn bg-danger waves-effect text-white" onClick="return confirm('Xóa hả')">Xóa</a>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    $("#loading").addClass('loading1');
     $("#mail").focus(function () {
         $("#notim").html("");
         $("#notim").removeClass("thongbao");
@@ -66,6 +66,7 @@ $(document).ready(function () {
 
     });
     $('#dangki').click(function() {
+
         function isEmail(email) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(email);
@@ -111,6 +112,7 @@ $(document).ready(function () {
             $("#noticap").addClass("thongbao");
             return false;
         }
+        $("#loading").removeClass('loading1');
         var checkformUrl = "checkdangky.php";
         $.ajax({
             url: checkformUrl,
@@ -129,6 +131,7 @@ $(document).ready(function () {
 
                     $("#contentdk").addClass("an");
                     $("#contenttc").removeClass("an");
+                    $("#loading").addClass('loading1');
                 }
                 
 
