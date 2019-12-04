@@ -7,21 +7,34 @@ _________________________________________________________ -->
             <div class="row">
                 <div class="col-xs-5 contact">
                     <p class="hidden-sm hidden-xs">Liên hệ: 0355590896 hoặc buu@buunl.name.vn</p>
-                    <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                    <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i
+                                    class="fa fa-phone"></i></a> <a href="#" data-animate-hover="pulse"><i
+                                    class="fa fa-envelope"></i></a>
                     </p>
                 </div>
                 <div class="col-xs-7">
                     <div class="social">
                         <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="external twitter" data-animate-hover="pulse"><i
+                                    class="fa fa-twitter"></i></a>
                         <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
 
                     </div>
 
                     <div class="login">
-                        <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Đăng nhập</span></a>
-                        <a href="<?=BASE_URL?>dang-ky/"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Đăng ký</span></a>
+                        <?php if (isset($_SESSION['login_id']) == false) { ?>
+                            <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i>
+                                <span class="hidden-xs text-uppercase">Đăng nhập</span></a>
+                            <a href="<?= BASE_URL ?>dang-ky/"><i class="fa fa-user"></i> <span
+                                        class="hidden-xs text-uppercase">Đăng ký</span></a>
+                        <?php } else { ?>
+                            <span id="hoten" class="text-uppercase"> <?= $_SESSION['login_hoten'] ?> </span>&nbsp;&nbsp;
+                            <a href="thoat.php"><i class="fa fa-sign-out"></i> <span
+                                        class="hidden-xs text-uppercase">Thoát</span></a>
+                            <a href="doipass.php">Đổi pass</a>
+                        <?php } ?>
+
                     </div>
 
                 </div>
@@ -43,10 +56,12 @@ _________________________________________________________ -->
 
                     <a class="navbar-brand home" href="index.php">
                         <img src="img/logo1.png" alt="Logo Shop" class="hidden-xs hidden-sm">
-                        <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                        <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span
+                                class="sr-only">Universal - go to homepage</span>
                     </a>
                     <div class="navbar-buttons">
-                        <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse"
+                                data-target="#navigation">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-align-justify"></i>
                         </button>
@@ -58,39 +73,38 @@ _________________________________________________________ -->
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class=" active">
-                            <a href="<?=BASE_URL?> " >Trang chủ <b class="caret"></b></a>
+                            <a href="<?= BASE_URL ?> ">Trang chủ <b class="caret"></b></a>
 
                         </li>
                         <li class="use-yamm yamm-fw">
-                            <a href="<?=BASE_URL?>dien-thoai/">Sản phẩm</b></a>
+                            <a href="<?= BASE_URL ?>dien-thoai/">Sản phẩm</b></a>
                         </li>
 
                         <li class="use-yamm yamm-fw">
-                            <a href="<?=BASE_URL?>lien-he/">Liên hệ</a>
+                            <a href="<?= BASE_URL ?>lien-he/">Liên hệ</a>
                         </li>
 
                         <!-- ========== FULL WIDTH MEGAMENU ================== -->
                         <li class="use-yamm yamm-fw">
-                            <a href="<?=BASE_URL?>tin-tuc/">Tin tức</a>
+                            <a href="<?= BASE_URL ?>tin-tuc/">Tin tức</a>
                         </li>
 
                         <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                         <li>
-                            <a href="<?=BASE_URL?>gioi-thieu/">Giới thiệu</a>
+                            <a href="<?= BASE_URL ?>gioi-thieu/">Giới thiệu</a>
                         </li>
                         <li class="use-yamm yamm-fw">
-                            <a href="<?=BASE_URL?>gio-hang/"  >
+                            <a href="<?= BASE_URL ?>gio-hang/">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="badge" style="margin-left: -7px;">
 
-                                    <?php if (isset($_SESSION['daySoLuong'])){
+                                    <?php if (isset($_SESSION['daySoLuong'])) {
                                         echo array_sum($_SESSION['daySoLuong']);
-                                        }
-                                        else{
+                                    } else {
                                         echo 0;
-                                        }
-                                        ?>
+                                    }
+                                    ?>
                                 </span>
                             </a>
 
@@ -100,7 +114,6 @@ _________________________________________________________ -->
 
                 </div>
                 <!--/.nav-collapse -->
-
 
 
                 <div class="collapse clearfix" id="search">

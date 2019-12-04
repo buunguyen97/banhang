@@ -25,6 +25,7 @@ if(isset($_SESSION['successupdate'])){
                    cellspacing="0" width="100%">
                 <thead>
                 <tr>
+                    <th>idDT</th>
                     <th>Tên ĐT</th>
                     <th class="sorting_2">Mô tả</th>
                     <th>Giá /Giá KM</th>
@@ -41,7 +42,9 @@ if(isset($_SESSION['successupdate'])){
                 $kq = $qt->ListDT();
                 while ($k=$kq->fetch_assoc()){ ?>
                     <tr>
+                        <td  class="idDT" ><?=$k['idDT']?></td>
                         <td><?=$k['TenDT']?></td>
+
                         <td><?=$k['MoTa']?></td>
 
                         <td>

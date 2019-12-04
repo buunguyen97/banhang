@@ -77,7 +77,7 @@ if (isset($_POST['TenDT'])) {
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Ngày Đăng</label>
                                 <div class="col-1">
-                                    <input type="text" id="datepicker" name="datepicker" class="form-control" value="" required>
+                                    <input type="text" id="datepicker" data-date-format="yyyy/mm/dd"name="datepicker" class="form-control" value="" required>
                                 </div>
                             </div>
                             <div class="form-group row ">

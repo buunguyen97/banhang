@@ -79,7 +79,7 @@ if (isset($_POST['TenDT'])) {
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Ngày Đăng</label>
                                 <div class="col-1">
-                                    <input type="text" id="datepicker" name="datepicker" class="form-control" value="<?=$kq['NgayCapNhat']?>" required>
+                                    <input type="text" id="datepicker" name="datepicker"  data-date-format="yyyy/mm/dd" class="form-control" value="<?=$kq['NgayCapNhat']?>" required>
                                 </div>
                             </div>
                             <div class="form-group row ">
@@ -90,7 +90,7 @@ if (isset($_POST['TenDT'])) {
                                         <?php $ListCL = $qt->ListCL();
                                         while ($r = $ListCL->fetch_assoc()) { ?>
                                             <?php if($r['idCL']==$kq['idCL']){ ?>
-                                                <option value="<?= $kq['idCL'] ?>" selected><?= $r['TenCL'] ?></option>
+                                                <option value="<?= $kq['idCL'] ?>" selected> <?= $r['TenCL'] ?></option>
                                             <?php}else { ?>
                                                 <option value="<?= $r['idCL'] ?>"><?= $r['TenCL'] ?></option>
                                             <?php }?>

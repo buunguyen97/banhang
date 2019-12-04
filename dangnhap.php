@@ -5,11 +5,11 @@ if (isset($_POST['mail'])){
     require_once('class/dt.php');
     $dt= new dt;
     $thanhcong = $dt->login($_POST['mail'], $_POST['pass'], $loi);
+
     if ($thanhcong==true) {
         if (isset($_SESSION['back'])){
             $back= $_SESSION['back'];
             unset($_SESSION['back']);
-            header("location:". $back);
         }else header("location: index.php");
         exit();
     }

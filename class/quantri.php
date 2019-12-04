@@ -179,4 +179,13 @@ class quantri extends goc{
         $kq= $this->db->query($sql) ;
         if(!$kq) die( $this-> db->error);
     }
+    function AnHien($idDT,$AnHien){
+        settype($idDT,'int');
+        settype($AnHien,'int');
+        $sql = "UPDATE dienthoai SET  AnHien=$AnHien
+        WHERE idDT= $idDT";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
 }
