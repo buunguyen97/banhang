@@ -2305,8 +2305,13 @@ fieldset[disabled] .btn-template-primary.active {
 .product:hover .buttons {
   clear: both;
   position: absolute;
-  top: 0;
-  background: rgba(255, 255, 255, 0.5);
+  top: -62px;
+  background: rgba(136, 116, 116, 0.5);
+  left: 15px;
+  width: 85%;
+  height: 87%;
+  margin: auto;
+
 }
 .product:hover .image img {
   -webkit-transform: scale(1.1, 1.1);

@@ -275,7 +275,55 @@ class dt extends goc{
         $_SESSION['login_email'] = $row['Email'];
         return TRUE;
     }
-
+    function checkLogin() {
+        if (isset($_SESSION['login_id'])== false){
+            $_SESSION['error'] = 'Bạn chưa đăng nhập';
+            $_SESSION['back'] = $_SERVER['REQUEST_URI'];
+            header('location:login.php');
+            exit();
+        }
+    }// checkLogin
+    function DoiMatKhau($passold, $pass, $repass, &$loi){
+        $thanhcong = true;
+        $passold = $this->db->escape_string(trim(strip_tags($passold)));
+        $pass = $this->db->escape_string(trim(strip_tags($pass)));
+        $repass = $this->db->escape_string(trim(strip_tags($repass)));
+        $iduser = $_SESSION['login_id'];
+// kiểm tra dữ liệu nhập
+        $pass_min = 3;
+        if ($passold==NULL){$thanhcong=false; $loi[]="Chưa nhập mật khẩu cũ"; }
+        else {
+            $sql="select * from users where idUser=$iduser and password= md5('$passold')";
+            $rs = $this->db->query($sql);
+            if ($rs->num_rows==0) {$thanhcong=false; $loi[]="Pass cũ kô đúng";}
+        }
+        if ($pass==NULL){$thanhcong=false;$loi[]="Chưa nhập pass mới";}
+        elseif (strlen($pass)<$pass_min) {
+            $thanhcong = false;
+            $loi[] = "Mật khẩu mới quá ngắn.>= $pass_min ký tự";
+        }
+        elseif ($pass!=$repass) {
+            $thanhcong = false;
+            $loi[] = "Mật khẩu mới nhập 2 lần không giống nhau";
+        }
+        if ($thanhcong ==true) { // cập nhật pass mới
+            $sql="UPDATE users SET password=md5('$pass') where iduser=$iduser";
+            $this->db->query($sql);
+        }
+        return $thanhcong;
+    } //function DoiPass
+    function Laypass($id){
+        $sql="select Password from users where idUser=$id ";
+        $kq = $this->db->query($sql);
+        $k = $kq->fetch_assoc();
+        return $k;
+    }
+    function Doipass($passmoi,$id){
+        $sql="UPDATE users SET Password ='$passmoi' WHERE idUser=$id";
+        $kq = $this->db->query($sql);
+        if(!$kq) die( $this-> db->error);
+        return $kq;
+    }
 
 }//dt
 ?>

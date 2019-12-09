@@ -32,7 +32,8 @@ _________________________________________________________ -->
                             <span id="hoten" class="text-uppercase"> <?= $_SESSION['login_hoten'] ?> </span>&nbsp;&nbsp;
                             <a href="thoat.php"><i class="fa fa-sign-out"></i> <span
                                         class="hidden-xs text-uppercase">Thoát</span></a>
-                            <a href="doipass.php">Đổi pass</a>
+                            <a href="#" data-toggle="modal" data-target="#doi-pass"><i class="fa fa-lock"></i>
+                                <span class="hidden-xs text-uppercase">Đổi Password</span></a>
                         <?php } ?>
 
                     </div>

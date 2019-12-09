@@ -180,6 +180,8 @@ _________________________________________________________ -->
 <script src="js/checkdangki.js"></script>
 <script src="js/checkmail.js"></script>
 <script src="js/kichhoat.js"></script>
+<script src="js/checkdangnhap.js"></script>
+<script src="js/checkdoipass.js"></script>
 
 
 </body>

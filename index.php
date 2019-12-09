@@ -67,6 +67,9 @@ _________________________________________________________ -->
     <?php
     require_once "dangnhap.php";
     ?>
+    <?php
+    require_once "doipass.php";
+    ?>
 
     <!-- *** LOGIN MODAL END *** -->
 
@@ -308,6 +311,8 @@ _________________________________________________________ -->
 <script type="text/javascript" src="http://www.tenmiencuaban.com/scripts/snow.js"></script>
 <!-- owl carousel -->
 <script src="js/owl.carousel.min.js"></script>
+<script src="js/checkdangnhap.js"></script>
+<script src="js/checkdoipass.js"></script>
 
 
 </body>
